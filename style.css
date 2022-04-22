@@ -1,0 +1,192 @@
+@font-face {
+  font-family: overpass-bold-italic;
+  src: url(./fonts/overpass/overpass-bold-italic.otf);
+}
+@font-face {
+  font-family: overpass-bold;
+  src: url(./fonts/overpass/overpass-bold.otf);
+}
+@font-face {
+  font-family: overpass-extrabold-italic;
+  src: url(./fonts/overpass/overpass-extrabold-italic.otf);
+}
+@font-face {
+  font-family: overpass-extrabold;
+  src: url(./fonts/overpass-extrabold.otf);
+}
+@font-face {
+  font-family: overpass-extralight-italic;
+  src: url(./fonts/overpass-extralight-italic.otf);
+}
+@font-face {
+  font-family: overpass-extralight;
+  src: url(./fonts/overpass/overpass-extralight.otf);
+}
+@font-face {
+  font-family: overpass-heavy-italic;
+  src: url(./fonts/overpass-heavy-italic.otf);
+}
+@font-face {
+  font-family: overpass-heavy;
+  src: url(./fonts/overpass-heavy.otf);
+}
+@font-face {
+  font-family: overpass-italic;
+  src: url(./fonts/overpass-italic.otf);
+}
+@font-face {
+  font-family: overpass-light-italic;
+  src: url(./fonts/overpass-light-italic.otf);
+}
+@font-face {
+  font-family: overpass-light;
+  src: url(./fonts/overpass/overpass-light.otf);
+}
+@font-face {
+  font-family: overpass-regular;
+  src: url(./fonts/overpass/overpass-regular.otf);
+}
+@font-face {
+  font-family: overpass-semibold-italic;
+  src: url(./fonts/overpass-semibold-italic.otf);
+}
+@font-face {
+  font-family: overpass-semibold;
+  src: url(./fonts/overpass-semibold.otf);
+}
+@font-face {
+  font-family: overpass-thin-italic;
+  src: url(./fonts/overpass-thin-italic.otf);
+}
+@font-face {
+  font-family: overpass-thin;
+  src: url(./fonts/overpass/overpass-thin.otf);
+}
+
+:root {
+  --background-color: #fff;
+  --tile-color: #fff;
+  --tile-accent: #145655;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+img {
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+  position: relative;
+  left: 0;
+  margin-top: 15%;
+  margin-bottom: 17%;
+}
+
+p{
+  width: 100%;
+  height: 30px;
+  position: relative;
+  padding-bottom: 10px;
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 40px;
+  font-family: overpass-extralight;
+  font-size: 17pt;
+}
+
+
+a {
+  text-decoration: none;
+  list-style: none;
+  color: var(--tile-color);
+  font-size: 18pt;
+  font-family: overpass-extralight;
+
+}
+
+.toolbox {
+  margin: 4%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 25px;
+  justify-items: center;
+}
+
+.toolbox h1{
+  background-color: var(--tile-accent);
+  color: var(--background-color);
+  font-family: overpass-thin;
+  border-radius: 0 0 10px 10px;
+}
+
+.flip-card-back h1{
+  border-radius: 10px;
+}
+
+
+.flip-card {
+  background-color: transparent;
+  background-color: var(--tile-color);
+  border-radius: 10px;
+  height: 267px;
+  width: 259px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  cursor: pointer;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  background-color: var(--tile-color);
+  height: 267px;
+  width: 259px;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+  border-radius: 10px;
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  background-color: var(--tile-color);
+  box-shadow: 0px 0px 10px 1px rgba(141,148,158,1);
+  border-radius: 10px;
+  height: 267px;
+  width: 259px;
+  backface-visibility: hidden;
+  cursor: pointer;
+
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: var(--tile-color);
+  color: black;
+  border-radius: 10px;
+}
+
+/* Style the back side */
+.flip-card-back {
+  border-radius: 10px;
+  background-color: var(--tile-accent);
+  color: white;
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
